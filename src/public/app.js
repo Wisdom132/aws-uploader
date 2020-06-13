@@ -16,7 +16,7 @@ async function getAllImages() {
     loader.style.display = 'block';
     try {
         let response = await axios.get('http://localhost:3000/upload');
-        let data = response.data.data.Contents.reverse();
+        let data = response.data.data.Contents;
         data.forEach(image => {
             $('#imageHolder').append(uiTemplate(image.Key));
 
@@ -43,7 +43,8 @@ form.addEventListener('submit', e => {
         console.log(res)
         loader.style.display = 'none';
         alert("Image Added");
-        getAllImages();
+        location.reload();
+        // getAllImages();
     }).catch(err => {
         console.log(err)
         loader.style.display = 'none';
