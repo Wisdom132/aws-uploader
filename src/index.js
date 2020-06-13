@@ -15,12 +15,15 @@ const app = express();
 app.use(morgan('dev'))
 app.use(bodyParser.json());
 app.use(cors());
+app.use(express.static(path.join(__dirname, '/public')));
 
 
-const aws = require('./config/aws')
+const aws = require('./config/aws');
 
-require('./api/routeHandler')(app)
-app.get('/', (req, res) => res.status(200).sendFile(path.join(__dirname + '/template/index.html')))
+require('./api/routeHandler')(app);
+app.get('/', (req, res) => {
+    res.status(200).sendFile('index.html')
+})
 
 
 
