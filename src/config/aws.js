@@ -1,7 +1,7 @@
-var aws = require('aws-sdk')
+const aws = require('aws-sdk')
 
-var multer = require('multer')
-var multerS3 = require('multer-s3')
+const multer = require('multer')
+const multerS3 = require('multer-s3')
 
 
 
@@ -10,7 +10,7 @@ aws.config.update({
     accessKeyId: process.env.ACCESS_KEY,
     region: 'eu-west-3'
 })
-var s3 = new aws.S3();
+const s3 = new aws.S3();
 const fileFilter = (req, file, cb) => {
     if (file.mimetype.startsWith('image')) {
         cb(null, true);
