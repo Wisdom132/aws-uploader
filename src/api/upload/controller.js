@@ -29,7 +29,7 @@ exports.getBucketItems = async (req, res) => {
     try {
         let response = await s3.listObjectsV2({
             Bucket: "instagram-app"
-        })
+        }).promise();
         console.log(response)
 
     } catch (err) {
