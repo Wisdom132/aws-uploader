@@ -9,12 +9,17 @@ const upload = require('../../config/aws')
 
 const singleUpload = upload.upload.single('image');
 
-router.post("/upload", (req, res) => {
-    singleUpload(req, res, (err) => {
-        return res.status(200).json({
-            imageURL: req.file.location
+router.post("/", (req, res) => {
+    try {
+        singleUpload(req, res, (err) => {
+            return res.status(200).json({
+                imageURL: req.file.location
+            })
         })
-    })
+    } catch (err) {
+        console.log(err)
+    }
+
 })
 
 
