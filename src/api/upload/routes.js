@@ -12,6 +12,12 @@ const singleUpload = upload.upload.single('image');
 router.post("/", (req, res) => {
     try {
         singleUpload(req, res, err => {
+            if (err) {
+                return res.status(422).json({
+                    title: "File Upload Error",
+                    desription: err.message
+                })
+            }
             return res.status(200).json({
                 imageURL: req.file.location
             })
