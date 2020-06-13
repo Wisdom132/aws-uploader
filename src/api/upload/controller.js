@@ -23,3 +23,16 @@ exports.uploadImage = (req, res) => {
         console.log(err)
     }
 }
+
+
+exports.getBucketItems = async (req, res) => {
+    try {
+        let response = await s3.listObjectsV2({
+            Bucket: "instagram-app"
+        })
+        console.log(response)
+
+    } catch (err) {
+        console.log(err)
+    }
+}
