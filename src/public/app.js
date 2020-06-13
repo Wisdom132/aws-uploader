@@ -28,3 +28,12 @@ async function getAllImages() {
         loader.style.display = 'none';
     }
 }
+
+
+let form = document.querySelector("#uploadForm");
+let file = document.querySelector("#file")
+form.addEventListener('submit', e => {
+    e.preventDefault();
+    let dat = file.files[0];
+    console.log(dat)
+})
