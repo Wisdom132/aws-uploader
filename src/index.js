@@ -12,4 +12,21 @@ app.get('/', (req, res) => res.status(200).json({
 }));
 
 
+
+app.use((req, res) => {
+    res.notFound();
+});
+
+app.use((err, req, res, next) => {
+    logger.error(err.stack);
+    next(err);
+});
+
+app.use((err, req, res, next) => {
+    res.status(503).json({
+        success: false,
+        error: "server_error",
+    });
+})
+
 app.listen(PORT, () => console.log("Server Running"))
