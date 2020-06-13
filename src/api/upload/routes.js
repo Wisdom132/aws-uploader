@@ -7,7 +7,7 @@ const upload = require('../../config/aws')
 //create upload instance
 
 
-const singleUpload = upload.single('image');
+const singleUpload = upload.upload.single('image');
 
 router.post("/upload", (req, res) => {
     singleUpload(req, res, (err) => {
