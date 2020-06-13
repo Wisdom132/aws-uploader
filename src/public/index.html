@@ -7,7 +7,7 @@
     <title>Cloud Computing</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 </head>
 <style>
@@ -15,6 +15,12 @@
 
     * {
         font-family: 'Lora', serif;
+    }
+
+    .cover {
+        object-fit: cover;
+        width: 100%;
+        height: 300px;
     }
 
     body {
@@ -31,25 +37,16 @@
                     <h2>Cloud Computing Home Work</h2>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <img src="./cover.jpg" alt="..." class="img-thumbnail img-fluid">
-                </div>
-                <div class="col-md-3">
-                    <img src="./cover.jpg" alt="..." class="img-thumbnail img-fluid">
-                </div>
-                <div class="col-md-3">
-                    <img src="./cover.jpg" alt="..." class="img-thumbnail img-fluid">
-                </div>
-                <div class="col-md-3">
-                    <img src="./cover.jpg" alt="..." class="img-thumbnail img-fluid">
-                </div>
+            <div class="row" id="imageHolder">
+
+
             </div>
         </div>
     </section>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 
-
-    <!-- <script src="./app.js"></script> -->
+    <script src="./app.js"></script>
 </body>
 
 </html>
