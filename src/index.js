@@ -3,6 +3,7 @@ const express = require('express');
 const PORT = 3000 || process.env.PORT;
 const bodyParser = require("body-parser");
 const morgan = require('morgan')
+const path = require('path');
 var cors = require("cors");
 
 
@@ -19,10 +20,7 @@ app.use(cors());
 const aws = require('./config/aws')
 
 require('./api/routeHandler')(app)
-
-app.get('/', (req, res) => res.status(200).json({
-    msg: "Server Running"
-}));
+app.get('/', (req, res) => res.status(200).sendFile(path.join(__dirname + '/template/index.html')))
 
 
 
