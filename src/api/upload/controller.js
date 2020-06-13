@@ -1,6 +1,9 @@
-const upload = require('../../config/aws')
+const {
+    upload,
+    s3
+} = require('../../config/aws')
 
-const singleUpload = upload.upload.single('image');
+const singleUpload = upload.single('image');
 
 
 exports.uploadImage = (req, res) => {

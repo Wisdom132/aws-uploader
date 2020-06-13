@@ -1,5 +1,4 @@
 const aws = require('aws-sdk')
-
 const multer = require('multer')
 const multerS3 = require('multer-s3')
 
@@ -19,7 +18,7 @@ const fileFilter = (req, file, cb) => {
     }
 };
 
-exports.upload = multer({
+const upload = multer({
     fileFilter,
     storage: multerS3({
         s3,
@@ -35,3 +34,8 @@ exports.upload = multer({
         }
     })
 })
+
+module.exports = {
+    upload,
+    s3
+}
