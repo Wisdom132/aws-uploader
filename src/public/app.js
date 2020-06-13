@@ -1,3 +1,5 @@
+let loader = document.querySelector('#loaderWrapper')
+
 getAllImages();
 
 
@@ -11,6 +13,7 @@ let uiTemplate = imageKey => {
 }
 
 async function getAllImages() {
+    loader.style.display = 'block';
     try {
         let response = await axios.get('http://localhost:3000/upload');
         let data = response.data.data.Contents;
@@ -18,8 +21,10 @@ async function getAllImages() {
             $('#imageHolder').append(uiTemplate(image.Key));
 
         });
+        loader.style.display = 'none';
 
     } catch (err) {
-        console.log(err)
+        console.log(err);
+        loader.style.display = 'none';
     }
 }
